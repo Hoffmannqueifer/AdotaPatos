@@ -7,9 +7,8 @@ namespace AdotaPatos.Models
 {
     public class Voluntario
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
         public string Nome { get; set; }
-        public string Nacionalidade { get; set; }
         public string Naturalidade { get; set; }
         public string Sexo { get; set; }
         public string EstadoCivil { get; set; }
@@ -32,28 +31,23 @@ namespace AdotaPatos.Models
         public string Doacao { get; set; }
         public string ServicoAjuda { get; set; }
 
-        public Voluntario(int id, string nome,/* string nacionalidade, string naturalidade,*/ string sexo, string estadoCivil, DateTime dataNascimento, string rg, string cpf, string profissao,/* string cartaoVacina,*/ string endereco, string cep, string cidade, string uf, string telefone, string email,/* string observacao1, string observacao2,*/ string dataAdesaoAdotaPatos, string dia, string turno, string doacao, string servicoAjuda)
+        public Voluntario(long id, string nome, string naturalidade, string sexo, string estadoCivil, DateTime dataNascimento, string rg, string cpf, string profissao, string endereco, string cep, string cidade, string uf, string telefone, string email, string dia, string turno, string doacao, string servicoAjuda)
         {
             Id = id;
             Nome = nome;
-            //Nacionalidade = nacionalidade;
-            //Naturalidade = naturalidade;
+            Naturalidade = naturalidade;
             Sexo = sexo;
             EstadoCivil = estadoCivil;
             DataNascimento = dataNascimento;
             Rg = rg;
             Cpf = cpf;
             Profissao = profissao;
-            //CartaoVacina = cartaoVacina;
             Endereco = endereco;
             Cep = cep;
             Cidade = cidade;
             Uf = uf;
             Telefone = telefone;
             Email = email;
-            //Observacao1 = observacao1;
-            //Observacao2 = observacao2;
-            //DataAdesaoAdotaPatos = dataAdesaoAdotaPatos;
             Dia = dia;
             Turno = turno;
             Doacao = doacao;
