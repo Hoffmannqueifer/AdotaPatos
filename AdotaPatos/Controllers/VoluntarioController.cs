@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AdotaPatos.DAO;
+using AdotaPatos.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,31 +10,73 @@ namespace AdotaPatos.Controllers
 {
     public class VoluntarioController : Controller
     {
+
+        VoluntarioDAO voluntarioDAO = new VoluntarioDAO();
+
+
         // GET: Voluntario
         public ActionResult Index()
         {
-            return View();
+            var teste = voluntarioDAO.Listar();
+            return View(teste);
         }
+
 
         public ActionResult Create()
         {
             return View();
         }
 
-        public ActionResult Details()
+
+        [HttpPost]
+        public ActionResult Create(Voluntario voluntario)
         {
-            return View();
+
+            voluntarioDAO.Salvar(voluntario);
+            return RedirectToAction(nameof(Index));
         }
 
-        public ActionResult Edit()
+
+        public ActionResult Details(long id)
         {
-            return View();
-        }
-        public ActionResult Delete()
-        {
-            return View();
+            if(id == 0)
+            {
+                return HttpNotFound();
+            }
+
+            var teste = voluntarioDAO.PorId(id);
+            return View(teste);
         }
 
+
+        public ActionResult Edit(long id)
+        {
+            var teste = voluntarioDAO.PorId(id);
+            return View(teste);
+        }
+
+
+        [HttpPost]
+        public ActionResult Edit(Voluntario voluntario)
+        {
+            voluntarioDAO.Atualizar(voluntario);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        public ActionResult Delete(long id)
+        {
+            var teste = voluntarioDAO.PorId(id);
+            return View(teste);
+        }
+
+
+        [HttpPost]
+        public ActionResult Delete(long? id)
+        {
+            voluntarioDAO.Delete(id);
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }
