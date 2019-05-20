@@ -15,10 +15,16 @@ namespace AdotaPatos.Controllers
 
 
         // GET: Voluntario
-        public ActionResult Index()
+        public ActionResult Index(string nome)
         {
+            if(nome != null)
+            {
+                var pes = voluntarioDAO.Search(nome);
+                return View(pes);
+            }
             var teste = voluntarioDAO.Listar();
             return View(teste);
+
         }
 
 
