@@ -14,7 +14,7 @@ namespace AdotaPatos.DAO
         {
             using (var sqlConnection = GetMySqlConnection())
             {
-                var query = @"insert into voluntario (Id, Nome, Naturalidade, Sexo, EstadoCivil, DataNascimento, Rg, Cpf, Profissao, Endereco, Cep, Cidade, Uf, Telefone, Email, Dia, Turno, ServicoAjuda, Doacao)values(@Id, @Nome, @Naturalidade, @Sexo, @EstadoCivil, @DataNascimento, @Rg, @Cpf, @Profissao, @Endereco, @Cep, @Cidade, @Uf, @Telefone, @Email, @Dia, @Turno, @ServicoAjuda, @Doacao)";
+                var query = @"insert into voluntario (Id, Nome, Naturalidade, Sexo, EstadoCivil, DataNascimento, Rg, Cpf, Profissao, Endereco, Cep, Cidade, Uf, Telefone, Email, Dia, Turno, Doacao, ServicoAjuda, Situacao)values(@Id, @Nome, @Naturalidade, @Sexo, @EstadoCivil, @DataNascimento, @Rg, @Cpf, @Profissao, @Endereco, @Cep, @Cidade, @Uf, @Telefone, @Email, @Dia, @Turno, @Doacao, @ServicoAjuda, @Situacao)";
                 sqlConnection.Execute(query, voluntario);
             }
         }
@@ -50,6 +50,17 @@ namespace AdotaPatos.DAO
             {
                 var query = @"update voluntario set Nome = @Nome, Naturalidade = @Naturalidade, Sexo = @Sexo, EstadoCivil = @EstadoCivil, DataNascimento = @DataNascimento, Rg = @Rg, Cpf = @Cpf, Profissao = @Profissao, Endereco = @Endereco, Cep = @Cep, Cidade = @Cidade, Uf = @Uf, Telefone = @Telefone, Email = @Email, Dia = @Dia, Turno = @Turno, ServicoAjuda = @ServicoAjuda, Doacao = @Doacao where Id = @Id";
                 sqlConnection.Execute(query, voluntario);
+            }
+        }
+
+        public IEnumerable<Voluntario> Search(string pesquisa)
+        {
+
+            using (var sqlConnection = GetMySqlConnection())
+            {
+                return sqlConnection.Query<Voluntario>("select Id, Nome, Telefone, Email, Dia, Turno from voluntario where Nome like " +
+                    "@nome", new { Nome = pesquisa + "%" });
+
             }
         }
     }

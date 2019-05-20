@@ -1,0 +1,53 @@
+﻿@model AdotaPatos.Models.Login
+
+@{
+    Layout = null;
+    var message = TempData["Message"] ?? string.Empty;
+
+}
+
+
+<!DOCTYPE html>
+
+<head>
+    <title>Login</title>
+</head>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card-group mb-4">
+                    <div class="card p-4">
+                        <div class="card-body ">
+                            <h1 style="color:#5FB404">Login </h1>
+                            <p class="text-muted">Faça login em sua conta</p>
+                            <form action="/login/index" method="POST" id="formLogin">
+                                <div id="errorCnpj"></div>
+                                
+                                
+
+                                <div id="errorLoginName"></div>
+                                <div class="input-group mb-3">
+                                    @*@Model.LoginName*@
+                                    <span class="input-group-addon"><i id="iconLoginName" class="icon-user"></i></span>
+                                    <input type="text" class="form-control" id="loginName" name="nome" value="" placeholder="Usuário" required />
+                                </div>
+                                <div id="errorLoginPass"></div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-addon"><i id="iconLoginPass" class="icon-lock"></i></span>
+                                    <input type="password" class="form-control" id="loginPassMD5" name="senha" value="" placeholder="Senha" required />
+                                </div>
+                                <div class="row">
+                                    <div style="padding-right:5px;" class="col-6">
+                                        @*<a href="login/Index" class="btn btn-success btn-block px-4">Login</a>*@
+                                        <button type="submit" class="btn btn-success btn-block px-4 text-white">Login</button>
+
+                                    </div>
+                                   
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    

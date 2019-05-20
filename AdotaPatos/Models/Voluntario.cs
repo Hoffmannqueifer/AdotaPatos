@@ -16,22 +16,19 @@ namespace AdotaPatos.Models
         public string Rg { get; set; }
         public string Cpf { get; set; }
         public string Profissao { get; set; }
-        //public string CartaoVacina { get; set; }
         public string Endereco { get; set; }
         public string Cep { get; set; }
         public string Cidade { get; set; }
         public string Uf { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
-        //public string Observacao1 { get; set; }
-        //public string Observacao2 { get; set; }
-        //public DateTime DataAdesaoAdotaPatos { get; set; }
         public string Dia { get; set; }
         public string Turno { get; set; }
         public string Doacao { get; set; }
         public string ServicoAjuda { get; set; }
+        public string Situacao { get; set; }
 
-        public Voluntario(long id, string nome, string naturalidade, string sexo, string estadoCivil, DateTime dataNascimento, string rg, string cpf, string profissao, string endereco, string cep, string cidade, string uf, string telefone, string email, string dia, string turno, string doacao, string servicoAjuda)
+        public Voluntario(long id, string nome, string naturalidade, string sexo, string estadoCivil, DateTime dataNascimento, string rg, string cpf, string profissao, string endereco, string cep, string cidade, string uf, string telefone, string email, string dia, string turno, string doacao, string servicoAjuda, string situacao)
         {
             Id = id;
             Nome = nome;
@@ -52,6 +49,7 @@ namespace AdotaPatos.Models
             Turno = turno;
             Doacao = doacao;
             ServicoAjuda = servicoAjuda;
+            Situacao = situacao;
         }
 
         public Voluntario()
