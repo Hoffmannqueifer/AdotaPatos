@@ -254,3 +254,8 @@ C:\Users\Luís Henrique\AdotaPatos\AdotaPatos\bin\System.Diagnostics.DiagnosticS
 C:\Users\Luís Henrique\AdotaPatos\AdotaPatos\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\Luís Henrique\AdotaPatos\AdotaPatos\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Luís Henrique\AdotaPatos\AdotaPatos\obj\Debug\AdotaPatos.csproj.CopyComplete
+C:\Users\Hoffmann\source\repos\AdotaPatos\AdotaPatos\bin\BouncyCastle.Crypto.dll
+C:\Users\Hoffmann\source\repos\AdotaPatos\AdotaPatos\bin\Google.Protobuf.dll
+C:\Users\Hoffmann\source\repos\AdotaPatos\AdotaPatos\bin\MySql.Data.dll
+C:\Users\Hoffmann\source\repos\AdotaPatos\AdotaPatos\bin\Google.Protobuf.xml
+C:\Users\Hoffmann\source\repos\AdotaPatos\AdotaPatos\bin\MySql.Data.xml
