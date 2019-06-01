@@ -50,34 +50,45 @@
                     </th>
                     <th>Ações</th>
                 </tr>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TipoAnimal)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NomeAnimal)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NomeVoluntario)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TipoCastrado)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DataResgate)
-                        </td>
-                        <td>
-                            <div class="btn-group-sm">
-                                <a href="@Url.Action("Edit", new { id = item.AnimalId })" class="btn btn-success text-white"><i class="fa fa-edit "></i> Editar </a>
-
-                                <a href="@Url.Action("Details", new { id = item.AnimalId })" class="btn btn-primary text-white"> <i class="fa fa-plus"></i> Detalhes</a>
-                                <a href="@Url.Action("Delete", new { id = item.AnimalId })" class="btn btn-danger"><i class="fa fa-trash-o "></i> Deletar </a>
-                            </div>
-                        </td>
-                    </tr>
-                }
+                @if (Model.Count() > 0)
+                {    
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TipoAnimal)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NomeAnimal)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NomeVoluntario)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TipoCastrado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DataResgate)
+                            </td>
+                            <td>
+                                <div class="btn-group-sm">
+                                    <a href="@Url.Action("Edit", new { id = item.AnimalId })" class="btn btn-success text-white"><i class="fa fa-edit "></i> Editar </a>
+                                    <a href="@Url.Action("Details", new { id = item.AnimalId })" class="btn btn-primary text-white"> <i class="fa fa-plus"></i> Detalhes</a>
+                                    <a href="@Url.Action("Delete", new { id = item.AnimalId })" class="btn btn-danger"><i class="fa fa-trash-o "></i> Deletar </a>
+                                </div>
+                            </td>
+                        </tr>
+                        }
+                        }else{
+                        <tr>
+                            <td>Não há informações.</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        }
             </table>
         </div>
     </div>

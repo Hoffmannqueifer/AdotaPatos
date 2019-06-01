@@ -61,16 +61,14 @@
             <div class="form-group col-md-4">
                 <label for="ImagemAntes" style="padding-left:115px">Antes</label>
                 <fieldset style="padding-left: 40px">
-                    <img id="mycard" height="200" width="200" class="img-responsive avatar-view" src="../ImagensAdotaPatos/EmojisCachorros.jpg" alt="Animal" title="Antes" />
+                    <img src="~/ImagensAdotaPatos/@Url.Content(@Model.ImagemAntes)" height="200" width="200" />
                 </fieldset>
-                <input type="file" name="file" class="btn btn-sm"><br />
             </div>
             <div class="form-group col-md-4">
-                <label for="ImagemAntes" style="padding-left:115px">Depois</label>
+                <label for="ImagemDepois" style="padding-left:115px">Depois</label>
                 <fieldset style="padding-left: 40px">
-                    <img id="mycard" height="200" width="200" class="img-responsive avatar-view" src="../ImagensAdotaPatos/EmojisCachorros.jpg" alt="Animal" title="Antes" />
+                    <img src="~/ImagensAdotaPatos/@Url.Content(@Model.ImagemDepois)" height="200" width="200" />
                 </fieldset>
-                <input type="file" name="file" class="btn btn-sm"><br />
             </div>
             <div class="form-group col-md-4">
                 <label for="Descricao">Descrição</label>
@@ -79,7 +77,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10 " style="margin-left: -15px">
-                <a href="/Animal/Edit" class="btn btn-dark text-white"> <i class="fa fa-check "></i> Editar Animal</a>
+                <a href="@Url.Action("Edit", new { id = Model.AnimalId })" class="btn cor text-white"><i class="fa fa-check"></i> Editar Animal</a>
                 <a href="/Animal/Index" class="btn btn-dark text-white"><i class="fa fa-mail-reply "></i> Voltar para Listagem de Animais</a>
             </div>
         </div>

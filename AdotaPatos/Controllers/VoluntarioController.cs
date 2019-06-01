@@ -37,9 +37,12 @@ namespace AdotaPatos.Controllers
         [HttpPost]
         public ActionResult Create(Voluntario voluntario)
         {
-
-            voluntarioDAO.Salvar(voluntario);
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {   
+                voluntarioDAO.Salvar(voluntario);
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
         }
 
 
@@ -65,8 +68,12 @@ namespace AdotaPatos.Controllers
         [HttpPost]
         public ActionResult Edit(Voluntario voluntario)
         {
-            voluntarioDAO.Atualizar(voluntario);
-            return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {        
+                voluntarioDAO.Atualizar(voluntario);
+                return RedirectToAction(nameof(Index));
+            }
+            return View();
         }
 
 

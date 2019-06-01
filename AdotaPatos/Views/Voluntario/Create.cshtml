@@ -32,6 +32,7 @@
                     <div class="form-group col-md-4">
                         <label for="Nome">Nome</label>
                         <input type="text" class="form-control" id="Nome" name="Nome">
+                        @Html.ValidationMessageFor(Model => Model.Nome, "", new { @class = "text-danger" })
                     </div>
 
 
@@ -39,6 +40,7 @@
                     <div class="form-group col-md-4">
                         <label for="Naturalidade">Naturalidade</label>
                         <input type="text" class="form-control" id="Naturalidade" name="Naturalidade">
+                        @Html.ValidationMessageFor(Model => Model.Naturalidade, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4">
@@ -48,6 +50,7 @@
                             <option value="Masculino">Masculino</option>
                             <option value="Feminino">Feminino</option>
                         </select>
+                        @Html.ValidationMessageFor(Model => Model.Sexo, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4">
@@ -60,6 +63,7 @@
                             <option value="Divorciado">Divorciado(a)</option>
                             <option value="Viúvo">Viúvo(a)</option>
                         </select>
+                        @Html.ValidationMessageFor(Model => Model.EstadoCivil, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4">
@@ -71,31 +75,37 @@
                     <div class="form-group col-md-4">
                         <label for="Rg">Rg</label>
                         <input type="text" class="form-control" id="Rg" name="Rg">
+                        @Html.ValidationMessageFor(Model => Model.Rg, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4">
                         <label for="Cpf">Cpf</label>
                         <input type="text" class="form-control" id="Cpf" name="Cpf">
+                        @Html.ValidationMessageFor(Model => Model.Cpf, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4">
                         <label for="Profissao">Profissão</label>
                         <input type="text" class="form-control" id="Profissao" name="Profissao">
+                        @Html.ValidationMessageFor(Model => Model.Profissao, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4">
                         <label for="Endereco">Endereço</label>
                         <input type="text" class="form-control" id="Endereco" name="Endereco">
+                        @Html.ValidationMessageFor(Model => Model.Endereco, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4">
                         <label for="Cep">Cep</label>
                         <input type="text" class="form-control Cep" id="Cep" name="Cep">
+                        @Html.ValidationMessageFor(Model => Model.Cep, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4">
                         <label for="Cidade">Cidade</label>
                         <input type="text" class="form-control" id="Cidade" name="Cidade">
+                        @Html.ValidationMessageFor(Model => Model.Cidade, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4 ">
@@ -130,16 +140,19 @@
                             <option value="SP">SP</option>
                             <option value="TO">TO</option>
                         </select>
+                        @Html.ValidationMessageFor(Model => Model.Uf, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4">
                         <label for="Telefone">telefone</label>
                         <input type="text" class="form-control" name="Telefone" id="Telefone">
+                        @Html.ValidationMessageFor(Model => Model.Telefone, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4">
                         <label for="Email">Email</label>
                         <input type="text" class="form-control" name="Email" id="Email">
+                        @Html.ValidationMessageFor(Model => Model.Email, "", new { @class = "text-danger" })
                     </div>
 
                     @*<div class="form-group col-md-4">
@@ -159,6 +172,7 @@
                             <option value="Sábado">Sábado</option>
                             <option value="Domingo">Domingo</option>
                         </select>
+                        @Html.ValidationMessageFor(Model => Model.Dia, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4 ">
@@ -169,6 +183,7 @@
                             <option value="Tarde">Tarde</option>
                             <option value="Noite">Noite</option>
                         </select>
+                        @Html.ValidationMessageFor(Model => Model.Turno, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4 ">
@@ -183,6 +198,7 @@
                             <option value="Dinheiro">Dinheiro</option>
                             <option value="OutrosComidasEquipamentosTransporte">Outros como comidas, equipamentos, transporte</option>
                         </select>
+                        @Html.ValidationMessageFor(Model => Model.Doacao, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4 ">
@@ -203,11 +219,13 @@
                             <option value="SetorComunicacaoArteDivulgacaoRedesSociais">Setor de comunicação e arte, divulgação e redes sociais</option>
                             <option value="Outros">Outros</option>
                         </select>
+                        @Html.ValidationMessageFor(Model => Model.ServicoAjuda, "", new { @class = "text-danger" })
                     </div>
 
                     <div class="form-group col-md-4">
                         <label for="Situacao">Situação</label>
                         <input type="text" class="form-control" id="Situacao" name="Situacao">
+                        @Html.ValidationMessageFor(Model => Model.Situacao, "", new { @class = "text-danger" })
                     </div>
 
 

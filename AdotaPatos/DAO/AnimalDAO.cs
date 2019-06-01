@@ -22,24 +22,24 @@ namespace AdotaPatos.DAO
         {
             using (var sqlConnection = GetMySqlConnection())
             {
-                return sqlConnection.Query<Animal>(@"select TipoAnimal, NomeAnimal, NomeVoluntario, DataResgate from animal");
+                return sqlConnection.Query<Animal>(@"select AnimalId, TipoAnimal, NomeAnimal, NomeVoluntario, TipoCastrado, DataResgate from animal");
             }
         }
 
-        public Animal PorId(long AnimalId)
+        public Animal PorId(int id)
         {
             using (var sqlConnection = GetMySqlConnection())
             {
-                return sqlConnection.Query<Animal>(@"select AnimalId, NomeAnimal, TipoAnimal, NomeVoluntario, LarTemporario, DataResgate, Sexo, Raca, Idade, TipoCastrado, ImagemAntes, ImagemDepois, Descricao from animal where Id = @AnimalId", new { Id = AnimalId }).First();
+                return sqlConnection.Query<Animal>(@"select AnimalId, NomeAnimal, TipoAnimal, NomeVoluntario, LarTemporario, DataResgate, Sexo, Raca, Idade, TipoCastrado, ImagemAntes, ImagemDepois, Descricao from animal where AnimalId = @animalId", new { AnimalId = id }).First();
             }
         }
 
-        public void Delete(long? AniimalId)
+        public void Delete(int? id)
         {
             using (var sqlConnection = GetMySqlConnection())
             {
-                var query = @"delete from animal where Id = @AniimalId";
-                sqlConnection.Execute(query, new { Id = AniimalId });
+                var query = @"delete from animal where AnimalId = @AnimalId";
+                sqlConnection.Execute(query, new { AnimalId = id });
             }
         }
 
@@ -47,8 +47,19 @@ namespace AdotaPatos.DAO
         {
             using (var sqlConnection = GetMySqlConnection())
             {
-                var query = @"update voluntario set AnimalId = @AnimalId, NomeAnimal = @NomeAnimal, TipoAnimal = @TipoAnimal, NomeVoluntario = @NomeVoluntario, LarTemporario = @LarTemporario, DataResgate = @DataResgate, Sexo = @sexo, Raca = @Raca, Idade = @Idade, TipoCastrado = @TipoCastrado, ImagemAntes = @ImagemAntes, ImagemDepois =  @ImagemDepois, Descricao = @Descricao  where Id = @AnimalId";
+                var query = @"update animal set NomeAnimal = @NomeAnimal, TipoAnimal = @TipoAnimal, NomeVoluntario = @NomeVoluntario, LarTemporario = @LarTemporario, DataResgate = @DataResgate, Sexo = @sexo, Raca = @Raca, Idade = @Idade, TipoCastrado = @TipoCastrado, ImagemAntes = @ImagemAntes, ImagemDepois = @ImagemDepois, Descricao = @Descricao where AnimalId = @AnimalId";
                 sqlConnection.Execute(query, animal);
+            }
+        }
+
+        public IEnumerable<Animal> Search(string pesquisa)
+        {
+
+            using (var sqlConnection = GetMySqlConnection())
+            {
+                return sqlConnection.Query<Animal>("select AnimalId, TipoAnimal, NomeAnimal, NomeVoluntario, TipoCastrado, DataResgate from animal where NomeAnimal like " +
+                    "@nomeAnimal", new { NomeAnimal = pesquisa + "%" });
+
             }
         }
     }
