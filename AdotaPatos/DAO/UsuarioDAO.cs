@@ -10,20 +10,20 @@ namespace AdotaPatos.DAO {
 
         public void Salvar(Usuario usuario) {
             using (var sqlConnection = GetMySqlConnection()) {
-                var query = @"insert into usuario (Id, Login, Cargo, Senha)values(@Id, @Login, @Cargo, @Senha)";
+                var query = @"insert into usuario (Id, Login, Senha, Cargo)values(@Id, @Login, @Senha, @Cargo)";
                 sqlConnection.Execute(query, usuario);
             }
         }
 
         public IEnumerable<Usuario> Listar() {
             using (var sqlConnection = GetMySqlConnection()) {
-                return sqlConnection.Query<Usuario>(@"select Id, Login, Cargo, Senha from usuario");
+                return sqlConnection.Query<Usuario>(@"select Id, Login, Senha, Cargo from usuario");
             }
         }
 
         public Usuario PorId(long id) {
             using (var sqlConnection = GetMySqlConnection()) {
-                return sqlConnection.Query<Usuario>(@"select Id, Login, Cargo, Senha from usuario where Id = @id", new { Id = id }).First();
+                return sqlConnection.Query<Usuario>(@"select Id, Login, Senha, Cargo from usuario where Id = @id", new { Id = id }).First();
             }
         }
 
@@ -36,7 +36,7 @@ namespace AdotaPatos.DAO {
 
         public void Atualizar(Usuario usuario) {
             using (var sqlConnection = GetMySqlConnection()) {
-                var query = @"update usuario set Login = @Login, Cargo = @Cargo, Senha = @Senha  where Id = @Id";
+                var query = @"update usuario set Login = @Login, Senha = @Senha, Cargo = @Cargo  where Id = @Id";
                 sqlConnection.Execute(query, usuario);
             }
         }
