@@ -22,26 +22,21 @@ namespace AdotaPatos.Models
         [Required(ErrorMessage = "* Campo Obrigatório")]
         public string Sexo { get; set; }
 
-        [Display(Name = "Nome do Animal")]
-        [Required(ErrorMessage = "* Campo Obrigatório")]
+        [Display(Name = "Estado Civil")]
         public string EstadoCivil { get; set; }
 
-        [Required(ErrorMessage = "* Campo Obrigatório")]
         [Display(Name = "Data de Nascimento")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataNascimento { get; set; }
 
         [Display(Name = "Rg")]
-        [Required(ErrorMessage = "* Campo Obrigatório")]
         public string Rg { get; set; }
 
         [Display(Name = "Cpf")]
-        [Required(ErrorMessage = "* Campo Obrigatório")]
         public string Cpf { get; set; }
 
         [Display(Name = "Profissão")]
-        [Required(ErrorMessage = "* Campo Obrigatório")]
         public string Profissao { get; set; }
 
         [Display(Name = "Endereço")]
@@ -66,6 +61,8 @@ namespace AdotaPatos.Models
 
         [Display(Name = "Email")]
         [Required(ErrorMessage = "* Campo Obrigatório")]
+        //[DataType(DataType.EmailAddress, ErrorMessage = "E-mail em formato inválido.")]
+        [EmailAddress(ErrorMessage = "E-mail em formato inválido.")]
         public string Email { get; set; }
 
         [Display(Name = "Dia")]
@@ -77,18 +74,15 @@ namespace AdotaPatos.Models
         public string Turno { get; set; }
 
         [Display(Name = "Doação")]
-        [Required(ErrorMessage = "* Campo Obrigatório")]
         public string Doacao { get; set; }
 
         [Display(Name = "Serviço de Ajuda")]
-        [Required(ErrorMessage = "* Campo Obrigatório")]
         public string ServicoAjuda { get; set; }
 
-        [Display(Name = "Situação")]
-        [Required(ErrorMessage = "* Campo Obrigatório")]
-        public string Situacao { get; set; }
+        [Display(Name = "Observação. Ex: Dias extras..")]
+        public string Observacao { get; set; }
 
-        public Voluntario(long id, string nome, string naturalidade, string sexo, string estadoCivil, DateTime dataNascimento, string rg, string cpf, string profissao, string endereco, string cep, string cidade, string uf, string telefone, string email, string dia, string turno, string doacao, string servicoAjuda, string situacao)
+        public Voluntario(long id, string nome, string naturalidade, string sexo, string estadoCivil, DateTime dataNascimento, string rg, string cpf, string profissao, string endereco, string cep, string cidade, string uf, string telefone, string email, string dia, string turno, string doacao, string servicoAjuda, string observacao)
         {
             Id = id;
             Nome = nome;
@@ -109,7 +103,7 @@ namespace AdotaPatos.Models
             Turno = turno;
             Doacao = doacao;
             ServicoAjuda = servicoAjuda;
-            Situacao = situacao;
+            Observacao = observacao;
         }
 
         public Voluntario()
