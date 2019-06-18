@@ -40,5 +40,16 @@ namespace AdotaPatos.DAO {
                 sqlConnection.Execute(query, usuario);
             }
         }
+
+        public IEnumerable<Usuario> Search(string pesquisa)
+        {
+
+            using (var sqlConnection = GetMySqlConnection())
+            {
+
+                return sqlConnection.Query<Usuario>("select Id, Login, Senha, Cargo from usuario where Login like " +
+                    "@Login", new { Login = pesquisa + "%" });
+            }
+        }
     }
 }
