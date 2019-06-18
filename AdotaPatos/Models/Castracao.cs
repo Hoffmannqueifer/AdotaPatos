@@ -11,6 +11,7 @@ namespace AdotaPatos.Models
         public long Id { get; set; }
 
         [Display(Name = "Nome do Evento")]
+
         [Required(ErrorMessage = " * Campo obrigatório!")]
         public string NomeEvento { get; set; }
 

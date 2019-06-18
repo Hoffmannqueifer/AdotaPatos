@@ -12,6 +12,7 @@ namespace AdotaPatos.Controllers
     {
         CastracaoDAO castracaoDAO = new CastracaoDAO();
         // GET: Castracao
+
         public ActionResult Index(string Nome)
         {
             if (Nome != null)
@@ -19,6 +20,7 @@ namespace AdotaPatos.Controllers
                 var pesquisaNome = castracaoDAO.Search(Nome);
                 return View(pesquisaNome);
             }
+
             var castracaoIndex = castracaoDAO.Listar();
             return View(castracaoIndex);
         }

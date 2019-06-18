@@ -37,6 +37,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="Dia">Data</label>
+
                 @Html.EditorFor(model => model.Dia, new { htmlAttributes = new { @class = "form-control", @id = "Dia", @type = "text", disabled = "disabled" } })
             </div>
             <div class="form-group col-md-4">
@@ -65,4 +66,11 @@
         }
         </div>
         
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 " style="margin-left: -15px">
+                <button type="submit" class="btn cor text-white"> <i class="fa fa-check "></i> Deletar Evento </button>
+                <a href="/Castracao/Index" class="btn btn-dark text-white"><i class="fa fa-mail-reply "></i> Voltar para Listagem de Eventos</a>
+            </div>
+        </div>
+    </div>
 </div>
