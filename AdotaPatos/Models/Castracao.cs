@@ -11,10 +11,13 @@ namespace AdotaPatos.Models
         public long Id { get; set; }
 
         [Display(Name = "Nome do Evento")]
+
+        [Required(ErrorMessage = " * Campo obrigatório!")]
         public string NomeEvento { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = " * Campo obrigatório!")]
         public DateTime Dia { get; set; }
 
         [Display(Name = "Tipo de Animais")]
@@ -25,6 +28,7 @@ namespace AdotaPatos.Models
         public string Descricao { get; set; }
 
         [Display(Name = "Total de Castrações")]
+        [Required(ErrorMessage = " * Campo obrigatório!")]
         public int Total { get; set; }
 
         public Castracao()
