@@ -14,7 +14,7 @@ namespace AdotaPatos.DAO
         {
             using (var sqlConnection = GetMySqlConnection())
             {
-                var query = @"insert into voluntario (Id, Nome, Naturalidade, Sexo, EstadoCivil, DataNascimento, Rg, Cpf, Profissao, Endereco, Cep, Cidade, Uf, Telefone, Email, Dia, Turno, Doacao, ServicoAjuda, Situacao)values(@Id, @Nome, @Naturalidade, @Sexo, @EstadoCivil, @DataNascimento, @Rg, @Cpf, @Profissao, @Endereco, @Cep, @Cidade, @Uf, @Telefone, @Email, @Dia, @Turno, @Doacao, @ServicoAjuda, @Situacao)";
+                var query = @"insert into voluntario (Id, Nome, Naturalidade, Sexo, EstadoCivil, DataNascimento, Rg, Cpf, Profissao, Endereco, Cep, Cidade, Uf, Telefone, Email, Dia, Turno, Doacao, ServicoAjuda, Observacao)values(@Id, @Nome, @Naturalidade, @Sexo, @EstadoCivil, @DataNascimento, @Rg, @Cpf, @Profissao, @Endereco, @Cep, @Cidade, @Uf, @Telefone, @Email, @Dia, @Turno, @Doacao, @ServicoAjuda, @observacao)";
                 sqlConnection.Execute(query, voluntario);
             }
         }
@@ -23,7 +23,7 @@ namespace AdotaPatos.DAO
         {
             using (var sqlConnection = GetMySqlConnection())
             {
-                return sqlConnection.Query<Voluntario>(@"select Id, Nome, Telefone, Email, Dia, Turno from voluntario");
+                return sqlConnection.Query<Voluntario>(@"select Id, Nome, Telefone, Email, Dia, Turno, Observacao from voluntario");
             }
         }
 
@@ -31,7 +31,7 @@ namespace AdotaPatos.DAO
         {
             using (var sqlConnection = GetMySqlConnection())
             {
-                return sqlConnection.Query<Voluntario>(@"select Id, Nome, Naturalidade, Sexo, EstadoCivil, DataNascimento, Rg, Cpf, Profissao, Endereco, Cep, Cidade, Uf, Telefone, Email, Dia, Turno, ServicoAjuda, Doacao from voluntario where Id = @id", new { Id = id }).First();
+                return sqlConnection.Query<Voluntario>(@"select Id, Nome, Naturalidade, Sexo, EstadoCivil, DataNascimento, Rg, Cpf, Profissao, Endereco, Cep, Cidade, Uf, Telefone, Email, Dia, Turno, ServicoAjuda, Doacao, Observacao from voluntario where Id = @id", new { Id = id }).First();
             }
         }
 
@@ -48,7 +48,7 @@ namespace AdotaPatos.DAO
         {
             using (var sqlConnection = GetMySqlConnection())
             {
-                var query = @"update voluntario set Nome = @Nome, Naturalidade = @Naturalidade, Sexo = @Sexo, EstadoCivil = @EstadoCivil, DataNascimento = @DataNascimento, Rg = @Rg, Cpf = @Cpf, Profissao = @Profissao, Endereco = @Endereco, Cep = @Cep, Cidade = @Cidade, Uf = @Uf, Telefone = @Telefone, Email = @Email, Dia = @Dia, Turno = @Turno, ServicoAjuda = @ServicoAjuda, Doacao = @Doacao where Id = @Id";
+                var query = @"update voluntario set Nome = @Nome, Naturalidade = @Naturalidade, Sexo = @Sexo, EstadoCivil = @EstadoCivil, DataNascimento = @DataNascimento, Rg = @Rg, Cpf = @Cpf, Profissao = @Profissao, Endereco = @Endereco, Cep = @Cep, Cidade = @Cidade, Uf = @Uf, Telefone = @Telefone, Email = @Email, Dia = @Dia, Turno = @Turno, ServicoAjuda = @ServicoAjuda, Doacao = @Doacao, Observacao = @Observacao where Id = @Id";
                 sqlConnection.Execute(query, voluntario);
             }
         }

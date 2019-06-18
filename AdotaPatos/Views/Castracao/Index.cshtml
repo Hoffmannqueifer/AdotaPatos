@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AdotaPatos.Models.Animal>
+﻿@model IEnumerable<AdotaPatos.Models.Castracao>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 
@@ -20,7 +20,7 @@
 <div class="card">
     <div class="panel panel-primary">
         <div class="card-header h3 cor text-center text-white">
-            Animais
+            Eventos de Castrações
             <div class="float-right">
                 <a href="@Url.Action("Create")" class="btn btn-success text-white"> <i class="fa fa-plus"></i> Novo</a>
             </div>
@@ -34,19 +34,19 @@
             <table class="table table-responsive-sm table-bordered table-striped table-sm">
                 <tr>
                     <th>
+                        @Html.DisplayNameFor(Models => Models.Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(Models => Models.NomeEvento)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(Models => Models.TipoAnimal)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(Models => Models.NomeAnimal)
+                        @Html.DisplayNameFor(Models => Models.Dia)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(Models => Models.NomeVoluntario)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.TipoCastrado)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.DataResgate)
+                        @Html.DisplayNameFor(model => model.Total)
                     </th>
                     <th>Ações</th>
                 </tr>
@@ -56,25 +56,25 @@
                     {
                         <tr>
                             <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NomeEvento)
+                            </td>
+                            <td>
                                 @Html.DisplayFor(modelItem => item.TipoAnimal)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.NomeAnimal)
+                                @Html.DisplayFor(modelItem => item.Dia)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.NomeVoluntario)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TipoCastrado)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.DataResgate)
+                                @Html.DisplayFor(modelItem => item.Total)
                             </td>
                             <td>
                                 <div class="btn-group-sm">
-                                    <a href="@Url.Action("Edit", new { id = item.AnimalId })" class="btn btn-success text-white"><i class="fa fa-edit "></i> Editar </a>
-                                    <a href="@Url.Action("Details", new { id = item.AnimalId })" class="btn btn-primary text-white"> <i class="fa fa-plus"></i> Detalhes</a>
-                                    <a href="@Url.Action("Delete", new { id = item.AnimalId })" class="btn btn-danger"><i class="fa fa-trash-o "></i> Deletar </a>
+                                    <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-success text-white"><i class="fa fa-edit "></i> Editar </a>
+                                    <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-primary text-white"> <i class="fa fa-plus"></i> Detalhes</a>
+                                    <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger"><i class="fa fa-trash-o "></i> Deletar </a>
                                 </div>
                             </td>
                         </tr>

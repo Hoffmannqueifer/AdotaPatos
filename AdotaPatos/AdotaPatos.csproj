@@ -145,18 +145,24 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdocaoController.cs" />
     <Compile Include="Controllers\AnimalController.cs" />
+    <Compile Include="Controllers\CastracaoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\VoluntarioController.cs" />
+    <Compile Include="DAO\AdocaoDAO.cs" />
     <Compile Include="DAO\AnimalDAO.cs" />
+    <Compile Include="DAO\CastracaoDAO.cs" />
     <Compile Include="DAO\DAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
     <Compile Include="DAO\VoluntarioDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Adocao.cs" />
     <Compile Include="Models\Animal.cs" />
+    <Compile Include="Models\Castracao.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\Voluntario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -253,6 +259,16 @@
     <Content Include="Views\Animal\Details.cshtml" />
     <Content Include="Views\Animal\Delete.cshtml" />
     <Content Include="Views\Animal\Index.cshtml" />
+    <Content Include="Views\Adocao\Create.cshtml" />
+    <Content Include="Views\Adocao\Edit.cshtml" />
+    <Content Include="Views\Adocao\Details.cshtml" />
+    <Content Include="Views\Adocao\Index.cshtml" />
+    <Content Include="Views\Adocao\Delete.cshtml" />
+    <Content Include="Views\Castracao\Create.cshtml" />
+    <Content Include="Views\Castracao\Edit.cshtml" />
+    <Content Include="Views\Castracao\Details.cshtml" />
+    <Content Include="Views\Castracao\Delete.cshtml" />
+    <Content Include="Views\Castracao\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

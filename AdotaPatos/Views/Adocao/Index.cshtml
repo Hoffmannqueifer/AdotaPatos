@@ -1,5 +1,7 @@
-﻿@model IEnumerable<AdotaPatos.Models.Animal>
+﻿@model IEnumerable<AdotaPatos.Models.Adocao>
+
 @{
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
@@ -20,7 +22,7 @@
 <div class="card">
     <div class="panel panel-primary">
         <div class="card-header h3 cor text-center text-white">
-            Animais
+            Adoção
             <div class="float-right">
                 <a href="@Url.Action("Create")" class="btn btn-success text-white"> <i class="fa fa-plus"></i> Novo</a>
             </div>
@@ -34,19 +36,19 @@
             <table class="table table-responsive-sm table-bordered table-striped table-sm">
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(Models => Models.TipoAnimal)
+                        @Html.DisplayNameFor(model => model.Id)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(Models => Models.NomeAnimal)
+                        @Html.DisplayNameFor(model => model.NomeDoAdotante)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(Models => Models.NomeVoluntario)
+                        @Html.DisplayNameFor(model => model.DataAdocao)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.TipoCastrado)
+                        @Html.DisplayNameFor(model => model.Telefone)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.DataResgate)
+                        @Html.DisplayNameFor(model => model.Cidade)
                     </th>
                     <th>Ações</th>
                 </tr>
@@ -56,25 +58,25 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TipoAnimal)
+                                @Html.DisplayFor(modelItem => item.Id)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.NomeAnimal)
+                                @Html.DisplayFor(modelItem => item.NomeDoAdotante)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.NomeVoluntario)
+                                @Html.DisplayFor(modelItem => item.DataAdocao)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.TipoCastrado)
+                                @Html.DisplayFor(modelItem => item.Telefone)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.DataResgate)
+                                @Html.DisplayFor(modelItem => item.Cidade)
                             </td>
                             <td>
                                 <div class="btn-group-sm">
-                                    <a href="@Url.Action("Edit", new { id = item.AnimalId })" class="btn btn-success text-white"><i class="fa fa-edit "></i> Editar </a>
-                                    <a href="@Url.Action("Details", new { id = item.AnimalId })" class="btn btn-primary text-white"> <i class="fa fa-plus"></i> Detalhes</a>
-                                    <a href="@Url.Action("Delete", new { id = item.AnimalId })" class="btn btn-danger"><i class="fa fa-trash-o "></i> Deletar </a>
+                                    <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-success text-white"><i class="fa fa-edit "></i> Editar </a>
+                                    <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-primary text-white"> <i class="fa fa-plus"></i> Detalhes</a>
+                                    <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger"><i class="fa fa-trash-o "></i> Deletar </a>
                                 </div>
                             </td>
                         </tr>
@@ -92,8 +94,7 @@
                     </tr>
                 }
             </table>
+
         </div>
     </div>
 </div>
-
-
