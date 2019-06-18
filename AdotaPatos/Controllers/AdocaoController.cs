@@ -47,8 +47,9 @@ namespace AdotaPatos.Controllers
             {
                 return HttpNotFound();
             }
-
+            
             var teste = adocaoDAO.PorId(id);
+            ViewBag.Data = teste.DataAdocao.ToString("dd/MM/yyyy");
             return View(teste);
         }
 
@@ -56,6 +57,7 @@ namespace AdotaPatos.Controllers
         public ActionResult Edit(long id)
         {
             var teste = adocaoDAO.PorId(id);
+            ViewBag.Data = teste.DataAdocao.ToString("dd/MM/yyyy");
             return View(teste);
         }
 
@@ -76,6 +78,7 @@ namespace AdotaPatos.Controllers
         public ActionResult Delete(long id)
         {
             var teste = adocaoDAO.PorId(id);
+            ViewBag.Data = teste.DataAdocao.ToString("dd/MM/yyyy");
             return View(teste);
         }
 

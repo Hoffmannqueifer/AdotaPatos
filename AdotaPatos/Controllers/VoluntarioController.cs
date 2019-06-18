@@ -54,6 +54,7 @@ namespace AdotaPatos.Controllers
             }
 
             var teste = voluntarioDAO.PorId(id);
+            ViewBag.Data = teste.DataNascimento.ToString("dd/MM/yyyy");
             return View(teste);
         }
 
@@ -61,6 +62,7 @@ namespace AdotaPatos.Controllers
         public ActionResult Edit(long id)
         {
             var teste = voluntarioDAO.PorId(id);
+            ViewBag.Data = teste.DataNascimento.ToString("dd/MM/yyyy");
             return View(teste);
         }
 
@@ -80,6 +82,7 @@ namespace AdotaPatos.Controllers
         public ActionResult Delete(long id)
         {
             var teste = voluntarioDAO.PorId(id);
+            ViewBag.Data = teste.DataNascimento.ToString("dd/MM/yyyy");
             return View(teste);
         }
 
