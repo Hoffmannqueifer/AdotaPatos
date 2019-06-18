@@ -52,5 +52,18 @@ namespace AdotaPatos.DAO
                 sqlConnection.Execute(query, adocao);
             }
         }
+
+
+        public IEnumerable<Adocao> Search(string pesquisa)
+        {
+
+            using (var sqlConnection = GetMySqlConnection())
+            {
+                return sqlConnection.Query<Adocao>("select Id, NomeDoAdotante, RgAdotante, CpfAdotante, DataAdocao, Telefone, Profissao, Logradouro, numero, Estado, Cidade from adocao where NomeDoAdotante like " +
+                    "@NomeDoAdotante", new { NomeDoAdotante = pesquisa + "%" });
+
+            }
+        }
+
     }
 }

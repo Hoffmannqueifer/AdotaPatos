@@ -19,9 +19,7 @@
 </style>
 
 <div class="card">
-    <div class="card-header  text-white h3 text-center text-white" style="background: #FF830F;">Detetar Adoção</div><br/>
-
-
+    <div class="card-header  text-white h3 text-center text-white" style="background: #FF830F;">Detetar Adoção</div><br />
     <div class="text-danger h5 text-center">
         Tem certeza que deseja deletar uma Adoção?
         <hr />
@@ -49,7 +47,8 @@
             <div class="form-group col-md-4">
                 <label for="DataAdocao">Data Adoção</label>
                 @*@Html.EditorFor(model => model.DataAdocao, new { htmlAttributes = new { @class = "form-control", @type="text", disabled = "disabled" } })*@
-                <input name="DataAdocao" value="@ViewBag.Data" class="form-control" disabled/>
+                <input name="DataAdocao" value="@ViewBag.Data" class="form-control" disabled />
+
             </div>
 
 

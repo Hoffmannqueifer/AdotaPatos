@@ -6,14 +6,18 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace AdotaPatos.Controllers {
-    public class UsuarioController : Controller {
+namespace AdotaPatos.Controllers
+{
+    public class UsuarioController : Controller
+    {
 
         UsuarioDAO usuarioDAO = new UsuarioDAO();
 
 
         // GET: Usuario
-        public ActionResult Index(string nome) {
+
+        public ActionResult Index(string nome)
+        {
             if (nome != null)
             {
                 var pesquisaUser = usuarioDAO.Search(nome);
@@ -24,14 +28,17 @@ namespace AdotaPatos.Controllers {
         }
 
 
-        public ActionResult Create() {
+        public ActionResult Create()
+        {
             return View();
         }
 
 
         [HttpPost]
-        public ActionResult Create(Usuario usuario) {
-            if (!ModelState.IsValid) {
+        public ActionResult Create(Usuario usuario)
+        {
+            if (!ModelState.IsValid)
+            {
                 return View(usuario);
             }
 
@@ -40,8 +47,10 @@ namespace AdotaPatos.Controllers {
         }
 
 
-        public ActionResult Details(long id) {
-            if (id == 0) {
+        public ActionResult Details(long id)
+        {
+            if (id == 0)
+            {
                 return HttpNotFound();
             }
 
@@ -50,15 +59,18 @@ namespace AdotaPatos.Controllers {
         }
 
 
-        public ActionResult Edit(long id) {
+        public ActionResult Edit(long id)
+        {
             var teste = usuarioDAO.PorId(id);
             return View(teste);
         }
 
 
         [HttpPost]
-        public ActionResult Edit(Usuario usuario) {
-            if (!ModelState.IsValid) {
+        public ActionResult Edit(Usuario usuario)
+        {
+            if (!ModelState.IsValid)
+            {
                 return View(usuario);
             }
 
@@ -67,14 +79,16 @@ namespace AdotaPatos.Controllers {
         }
 
 
-        public ActionResult Delete(long id) {
+        public ActionResult Delete(long id)
+        {
             var teste = usuarioDAO.PorId(id);
             return View(teste);
         }
 
 
         [HttpPost]
-        public ActionResult Delete(long? id) {
+        public ActionResult Delete(long? id)
+        {
             usuarioDAO.Delete(id);
             return RedirectToAction(nameof(Index));
         }

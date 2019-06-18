@@ -11,7 +11,6 @@ namespace AdotaPatos.Models
         public long Id { get; set; }
 
         [Display(Name = "Nome do Evento")]
-
         [Required(ErrorMessage = " * Campo obrigatório!")]
         public string NomeEvento { get; set; }
 
@@ -36,7 +35,8 @@ namespace AdotaPatos.Models
 
         }
 
-        public Castracao(long id,string nomeEvento ,DateTime dia, string tipoAnimal, string sexo, string descricao, int total)
+        public Castracao(long id, string nomeEvento, DateTime dia, string tipoAnimal, string sexo, string descricao, int total)
+
         {
             Id = id;
             NomeEvento = nomeEvento;

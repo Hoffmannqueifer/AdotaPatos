@@ -15,7 +15,7 @@ namespace AdotaPatos.Controllers
         // GET: Animal
         public ActionResult Index(string nome)
         {
-            if(nome!= null)
+            if (nome != null)
             {
                 var pes = animalDAO.Search(nome);
                 return View(pes);
@@ -32,7 +32,7 @@ namespace AdotaPatos.Controllers
         [HttpPost]
         public ActionResult Create(Animal animal, HttpPostedFileBase file, HttpPostedFileBase file2)
         {
-            
+
 
             if (file != null)
             {
@@ -83,7 +83,7 @@ namespace AdotaPatos.Controllers
             }
 
             if (ModelState.IsValid)
-            {       
+            {
 
                 if (animal.ImagemAntes == null & animal.ImagemDepois != null)
                 {
@@ -120,7 +120,7 @@ namespace AdotaPatos.Controllers
         }
 
 
-        public ActionResult Edit(int id )
+        public ActionResult Edit(int id)
         {
             var AnimalEdit = animalDAO.PorId(id);
             return View(AnimalEdit);
@@ -149,42 +149,42 @@ namespace AdotaPatos.Controllers
             if (ModelState.IsValid)
             {
 
-            
 
-            if (animal.ImagemAntes == null & animal.ImagemDepois != null)
-            {
 
-                animal.ImagemAntes = "EmojisCachorros.jpg";
-                animalDAO.Atualizar(animal);
-                return RedirectToAction(nameof(Index));
-            }
+                if (animal.ImagemAntes == null & animal.ImagemDepois != null)
+                {
 
-            if (animal.ImagemDepois == null & animal.ImagemAntes != null)
-            {
+                    animal.ImagemAntes = "EmojisCachorros.jpg";
+                    animalDAO.Atualizar(animal);
+                    return RedirectToAction(nameof(Index));
+                }
 
-                animal.ImagemDepois = "EmojisCachorros.jpg";
-                animalDAO.Atualizar(animal);
-                return RedirectToAction(nameof(Index));
-            }
+                if (animal.ImagemDepois == null & animal.ImagemAntes != null)
+                {
 
-            if (animal.ImagemDepois == null & animal.ImagemAntes == null)
-            {
+                    animal.ImagemDepois = "EmojisCachorros.jpg";
+                    animalDAO.Atualizar(animal);
+                    return RedirectToAction(nameof(Index));
+                }
 
-                animal.ImagemAntes = "EmojisCachorros.jpg";
-                animal.ImagemDepois = "EmojisCachorros.jpg";
-                animalDAO.Atualizar(animal);
-                return RedirectToAction(nameof(Index));
-            }
+                if (animal.ImagemDepois == null & animal.ImagemAntes == null)
+                {
 
-            else
-            {
-                animalDAO.Atualizar(animal);
-                return RedirectToAction(nameof(Index));
-            }
+                    animal.ImagemAntes = "EmojisCachorros.jpg";
+                    animal.ImagemDepois = "EmojisCachorros.jpg";
+                    animalDAO.Atualizar(animal);
+                    return RedirectToAction(nameof(Index));
+                }
+
+                else
+                {
+                    animalDAO.Atualizar(animal);
+                    return RedirectToAction(nameof(Index));
+                }
             }
             return View();
         }
-        
+
         public ActionResult Details(int id)
         {
 

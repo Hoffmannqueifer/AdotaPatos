@@ -15,8 +15,15 @@ namespace AdotaPatos.Controllers
 
 
         // GET: Adocao
-        public ActionResult Index()
+
+        public ActionResult Index(string nome)
         {
+            if (nome != null)
+            {
+                var pes = adocaoDAO.Search(nome);
+                return View(pes);
+            }
+
             var teste = adocaoDAO.Listar();
             return View(teste);
         }
@@ -47,7 +54,6 @@ namespace AdotaPatos.Controllers
             {
                 return HttpNotFound();
             }
-            
             var teste = adocaoDAO.PorId(id);
             ViewBag.Data = teste.DataAdocao.ToString("dd/MM/yyyy");
             return View(teste);
