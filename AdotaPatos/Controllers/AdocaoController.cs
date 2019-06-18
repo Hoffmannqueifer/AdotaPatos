@@ -8,21 +8,21 @@ using System.Web.Mvc;
 
 namespace AdotaPatos.Controllers
 {
-    public class UsuarioController : Controller
+    public class AdocaoController : Controller
     {
 
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        AdocaoDAO adocaoDAO = new AdocaoDAO();
 
 
-        // GET: Usuario
+        // GET: Adocao
         public ActionResult Index(string nome)
         {
             if (nome != null)
             {
-                var pesquisaUser = usuarioDAO.Search(nome);
-                return View(pesquisaUser);
+                var pes = adocaoDAO.Search(nome);
+                return View(pes);
             }
-            var teste = usuarioDAO.Listar();
+            var teste = adocaoDAO.Listar();
             return View(teste);
         }
 
@@ -34,14 +34,14 @@ namespace AdotaPatos.Controllers
 
 
         [HttpPost]
-        public ActionResult Create(Usuario usuario)
+        public ActionResult Create(Adocao adocao)
         {
             if (!ModelState.IsValid)
             {
-                return View(usuario);
+                return View(adocao);
             }
 
-            usuarioDAO.Salvar(usuario);
+            adocaoDAO.Salvar(adocao);
             return RedirectToAction(nameof(Index));
         }
 
@@ -53,34 +53,37 @@ namespace AdotaPatos.Controllers
                 return HttpNotFound();
             }
 
-            var teste = usuarioDAO.PorId(id);
+            var teste = adocaoDAO.PorId(id);
+            ViewBag.Data = teste.DataAdocao.ToString("dd/MM/yyyy");
             return View(teste);
         }
 
 
         public ActionResult Edit(long id)
         {
-            var teste = usuarioDAO.PorId(id);
+            var teste = adocaoDAO.PorId(id);
+            ViewBag.Data = teste.DataAdocao.ToString("dd/MM/yyyy");
             return View(teste);
         }
 
 
         [HttpPost]
-        public ActionResult Edit(Usuario usuario)
+        public ActionResult Edit(Adocao adocao)
         {
             if (!ModelState.IsValid)
             {
-                return View(usuario);
+                return View(adocao);
             }
 
-            usuarioDAO.Atualizar(usuario);
+            adocaoDAO.Atualizar(adocao);
             return RedirectToAction(nameof(Index));
         }
 
 
         public ActionResult Delete(long id)
         {
-            var teste = usuarioDAO.PorId(id);
+            var teste = adocaoDAO.PorId(id);
+            ViewBag.Data = teste.DataAdocao.ToString("dd/MM/yyyy");
             return View(teste);
         }
 
@@ -88,7 +91,7 @@ namespace AdotaPatos.Controllers
         [HttpPost]
         public ActionResult Delete(long? id)
         {
-            usuarioDAO.Delete(id);
+            adocaoDAO.Delete(id);
             return RedirectToAction(nameof(Index));
         }
 

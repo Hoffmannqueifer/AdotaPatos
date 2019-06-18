@@ -43,7 +43,7 @@ namespace AdotaPatos.DAO
             }
         }
 
-        public void Atualizar( Animal animal)
+        public void Atualizar(Animal animal)
         {
             using (var sqlConnection = GetMySqlConnection())
             {
