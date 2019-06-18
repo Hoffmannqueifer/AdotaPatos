@@ -13,7 +13,12 @@ namespace AdotaPatos.Controllers {
 
 
         // GET: Usuario
-        public ActionResult Index() {
+        public ActionResult Index(string nome) {
+            if (nome != null)
+            {
+                var pesquisaUser = usuarioDAO.Search(nome);
+                return View(pesquisaUser);
+            }
             var teste = usuarioDAO.Listar();
             return View(teste);
         }
