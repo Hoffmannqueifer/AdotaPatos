@@ -47,7 +47,7 @@ namespace AdotaPatos.DAO
         {
             using (var sqlConnection = GetMySqlConnection())
             {
-                var query = @"update castracao set NomeEvento = @NomeEvento, @Dia, TipoAnimal = @TipoAnimal, Sexo= @Sexo, Descricao=@descricao, Total = @Total where Id = @Id";
+                var query = @"update castracao set NomeEvento = @NomeEvento, Dia =@Dia, TipoAnimal = @TipoAnimal, Sexo= @Sexo, Descricao=@descricao, Total = @Total where Id = @Id";
                 sqlConnection.Execute(query, castracao);
             }
         }
@@ -57,8 +57,8 @@ namespace AdotaPatos.DAO
 
             using (var sqlConnection = GetMySqlConnection())
             {
-                return sqlConnection.Query<Castracao>("select Id, Dia, TipoAnimal, Sexo, Descricao, Total where NomeEvento like " +
-                    "@NomeEvento", new { NomeAnimal = pesquisa + "%" });
+                return sqlConnection.Query<Castracao>("select Id, NomeEvento, Dia, TipoAnimal, Sexo, Descricao, Total from castracao where NomeEvento like " +
+                    "@NomeEvento", new { NomeEvento = pesquisa + "%" });
 
             }
         }

@@ -217,7 +217,7 @@
 
                 <div class="form-group col-md-4">
                     <label for="Observacao">Observações. Ex: dias extras?</label>
-                    <input type="text" class="form-control" id="Observacao" name="Observacao">
+                    @Html.TextAreaFor(model => model.Observacao, htmlAttributes: new { @class = "form-control", rows = "8" })
                     @Html.ValidationMessageFor(Model => Model.Observacao, "", new { @class = "text-danger" })
                 </div>
 

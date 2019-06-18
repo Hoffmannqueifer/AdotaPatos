@@ -144,7 +144,7 @@
 
                 <div class="form-group col-md-4">
                     <label for="Observacao">Observações</label>
-                    @Html.EditorFor(model => model.Observacao, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.TextAreaFor(model => model.Observacao, htmlAttributes: new { @class = "form-control", rows = "8" })
                     @Html.ValidationMessageFor(model => model.Observacao, "", new { @class = "text-danger" })
                 </div>
 
