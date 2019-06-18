@@ -28,7 +28,7 @@ namespace AdotaPatos.Models
         [Required(ErrorMessage = "* Campo Obrigatório")]
         [Display(Name = "Data de Resgate")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DataResgate { get; set; }
 
         [Display(Name = "Sexo do Animal")]
