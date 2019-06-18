@@ -196,7 +196,15 @@ namespace AdotaPatos.Controllers
             var AnimalDetails = animalDAO.PorId(id);
             return View(AnimalDetails);
         }
+
         public ActionResult Delete(int id)
+        {
+            var teste = animalDAO.PorId(id);
+            return View(teste);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int? id)
         {
             animalDAO.Delete(id);
             return RedirectToAction(nameof(Index));

@@ -53,6 +53,7 @@ namespace AdotaPatos.DAO
             }
         }
 
+
         public IEnumerable<Adocao> Search(string pesquisa)
         {
 
@@ -63,5 +64,6 @@ namespace AdotaPatos.DAO
 
             }
         }
+
     }
 }

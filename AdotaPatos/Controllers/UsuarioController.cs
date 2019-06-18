@@ -15,6 +15,7 @@ namespace AdotaPatos.Controllers
 
 
         // GET: Usuario
+
         public ActionResult Index(string nome)
         {
             if (nome != null)

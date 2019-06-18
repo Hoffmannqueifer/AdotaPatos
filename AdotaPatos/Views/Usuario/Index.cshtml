@@ -41,6 +41,7 @@
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Cargo)
+
                     </th>
                     <th>Ações</th>
                 </tr>
@@ -59,7 +60,6 @@
                         <td>
                             <div class="btn-group-sm">
                                 <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-success text-white"><i class="fa fa-edit "></i> Editar </a>
-
                                 <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-primary text-white"> <i class="fa fa-plus"></i> Detalhes</a>
                                 <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger"><i class="fa fa-trash-o "></i> Deletar </a>
                             </div>

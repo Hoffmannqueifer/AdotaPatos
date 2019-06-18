@@ -36,6 +36,7 @@ namespace AdotaPatos.Models
         }
 
         public Castracao(long id, string nomeEvento, DateTime dia, string tipoAnimal, string sexo, string descricao, int total)
+
         {
             Id = id;
             NomeEvento = nomeEvento;

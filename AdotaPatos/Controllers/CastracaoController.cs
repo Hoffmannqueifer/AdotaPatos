@@ -67,7 +67,6 @@ namespace AdotaPatos.Controllers
 
             var CastracaoDetails = castracaoDAO.PorId(Id);
             return View(CastracaoDetails);
-
         }
 
         public ActionResult Delete(long Id)

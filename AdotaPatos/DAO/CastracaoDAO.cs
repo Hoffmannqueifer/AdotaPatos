@@ -7,7 +7,9 @@ using System.Web;
 
 namespace AdotaPatos.DAO
 {
+
     public class CastracaoDAO : DAO
+
     {
         public void Salvar(Castracao castracao)
         {
@@ -59,7 +61,6 @@ namespace AdotaPatos.DAO
             {
                 return sqlConnection.Query<Castracao>("select Id, NomeEvento, Dia, TipoAnimal, Sexo, Descricao, Total from castracao where NomeEvento like " +
                     "@NomeEvento", new { NomeEvento = pesquisa + "%" });
-
             }
         }
     }
